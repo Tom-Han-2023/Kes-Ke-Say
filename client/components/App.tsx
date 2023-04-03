@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import LandingPage from './LandingPage'
 import MainLayout from './MainLayout'
 import Home from './Home'
+import UserProfilePage from './UserProfilePage'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="register" element={<div>Register</div>} />
         <Route path="profiles" element={<div>AllProfiles </div>} />
-        <Route path="profiles/:username" element={<div>Profile</div>} />
+        <Route path="profiles/:username" element={<UserProfilePage />} />
         <Route path="post" element={<div>AddPost</div>} />
         <Route path="post/:id" element={<div>Post</div>} />
         <Route path="groups" element={<div>AllGroups</div>} />
