@@ -184,3 +184,4 @@ Here is an example of what we would like to see with regards to testing coverage
 - Pace yourself
 - Take breaks, touch some grass
 - Dream big!
+- Vive La France !
