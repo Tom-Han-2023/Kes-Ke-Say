@@ -6,7 +6,7 @@ import {
   WeatherAction,
 } from '../actions/weatherAction'
 
-type WeatherState = {
+export type WeatherState = {
   data: WeatherData | null
   isLoading: boolean
   error: string | null

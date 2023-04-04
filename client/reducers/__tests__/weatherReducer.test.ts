@@ -1,5 +1,10 @@
 import { WeatherData } from '../../../models/weather'
-import { RECEIVE_WEATHER, WeatherAction } from '../../actions/weatherAction'
+import {
+  FAILURE_WEATHER,
+  RECEIVE_WEATHER,
+  REQUEST_WEATHER,
+  WeatherAction,
+} from '../../actions/weatherAction'
 import weatherReducer from '../weatherReducer'
 import type { WeatherState } from '../weatherReducer'
 
@@ -50,16 +55,44 @@ const initialWeatherState: WeatherState = {
   isLoading: false,
   error: null,
 }
-const action: WeatherAction = {
+const receiveAction: WeatherAction = {
   type: RECEIVE_WEATHER,
   payload: testItem,
+}
+
+const failureItem = 'something'
+
+const failureAction: WeatherAction = {
+  type: FAILURE_WEATHER,
+  payload: failureItem,
+}
+
+const requestAction: WeatherAction = {
+  type: REQUEST_WEATHER,
+  payload: null,
 }
 
 describe('weather reducer', () => {
   it('should return a new state with data', () => {
     const expected = { data: testItem, isLoading: false, error: null }
 
-    expect(weatherReducer(initialWeatherState, action)).tobe(expected)
+    expect(weatherReducer(initialWeatherState, receiveAction)).toStrictEqual(
+      expected
+    )
+  })
+  it('should update state to a loading state', () => {
+    const expected = { data: null, isLoading: true, error: null }
+
+    expect(weatherReducer(initialWeatherState, requestAction)).toStrictEqual(
+      expected
+    )
+  })
+  it('should update state to a error state', () => {
+    const expected = { data: null, isLoading: false, error: failureItem }
+
+    expect(weatherReducer(initialWeatherState, failureAction)).toStrictEqual(
+      expected
+    )
   })
 })
 

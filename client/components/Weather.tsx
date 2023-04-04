@@ -17,19 +17,32 @@ function Weather() {
   console.log(weather)
 
   if (weather.isLoading) {
-    return <div>weather is loading</div>
+    return <div className="ml-8">weather is loading</div>
   }
   if (weather.error) {
-    return <div>{weather.error}</div>
+    return <div className="ml-8">{weather.error}</div>
   }
   if (!weather.data) {
-    return <div></div>
+    return <div className="ml-8"></div>
   }
 
   return (
-    <>
-      <h1>{weather.data.current.temp_c}</h1>
-    </>
+    <div className="ml-8 ">
+      <img
+        src={weather.data.current.condition.icon}
+        alt={weather.data.current.condition.text}
+      />
+      {weather.data.current.temp_c < 14 ? (
+        <p className="text-xl font-bold text-blue-400">
+          {weather.data.current.temp_c}°C
+        </p>
+      ) : (
+        <p className="text-xl font-bold text-red-400">
+          {weather.data.current.temp_c}°C
+        </p>
+      )}
+      <p>{weather.data.location.name}</p>
+    </div>
   )
 }
 
