@@ -4,4 +4,5 @@ export default interface Post {
   body: string
   image: string
   created_at: number
+  users_username: string
 }

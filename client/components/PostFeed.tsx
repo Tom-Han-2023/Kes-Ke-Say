@@ -42,13 +42,14 @@ function PostFeed() {
           <h2 className="text-center">Posts</h2>
           {posts.map((post: Post) => {
             return (
-              <div key={`keri${post.id}`}>
+              <div key={`key${post.id}`}>
                 <Posts
                   id={post.id}
-                  user_id={post.user_id}
+                  users_username={post.users_username}
                   body={post.body}
                   image={post.image}
                   created_at={post.created_at}
+                  user_id={post.user_id}
                 />
               </div>
             )

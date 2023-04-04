@@ -5,7 +5,11 @@ module.exports = {
     './server/public/index.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'french-blue': '#364da1',
+      },
+    },
   },
   plugins: [],
 }
