@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux' // this imports something specific - like destructuring?
-import groups from './groups' // this imports 'export default'
+import { combineReducers } from 'redux'
+import groups from './groups'
 
 export default combineReducers({
   groups,
