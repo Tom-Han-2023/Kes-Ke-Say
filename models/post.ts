@@ -1,4 +1,4 @@
-export interface Post {
+export default interface Post {
   id: number
   user_id: number
   body: string

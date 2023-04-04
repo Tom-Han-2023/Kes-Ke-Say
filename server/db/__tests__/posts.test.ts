@@ -1,7 +1,7 @@
 const knex = require('knex')
 const config = require('../knexfile')
 const testConnection = knex(config.test)
-import { Post } from '../../../models/post'
+import Post from '../../../models/post'
 
 const db = require('../functions/posts')
 
