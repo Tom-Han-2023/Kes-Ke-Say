@@ -8,13 +8,13 @@ beforeEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET /api/v1/externalApi', () => {
+describe('GET /api/v1/externalApi/weather', () => {
   it("returns the weather data for a user's location by id", async () => {
     jest
       .mocked(db.getUserLocation)
       .mockResolvedValue([{ location: 'Auckland' }])
 
-    const response = await request(server).get('/api/v1/externalApi')
+    const response = await request(server).get('/api/v1/externalApi/weather')
 
     expect(response.body.location.name).toBe('Auckland')
   })
@@ -23,7 +23,7 @@ describe('GET /api/v1/externalApi', () => {
     jest
       .mocked(db.getUserLocation)
       .mockRejectedValue(new Error('it did not work :('))
-    const response = await request(server).get('/api/v1/externalApi')
+    const response = await request(server).get('/api/v1/externalApi/weather')
     expect(response.status).toBe(500)
     expect(response.body.error).not.toBe('it did not work :(')
     expect(response.body.error).toBe(
