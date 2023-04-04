@@ -1,15 +1,13 @@
 import { useEffect } from 'react'
-import { Group } from '../../models/group'
 import { useAppDispatch, useAppSelector } from '../hooks'
+import { fetchGroups } from '../actions/groups'
 
 export default function AllGroups() {
-  // later groups is a prop - if we wanted to map data to a component?
-  const groups: Group[] = [
-    { id: 1, name: 'friendChips', image: 'fries-darkgray.png' },
-    { id: 2, name: 'The fast and the curious', image: 'car-darkgray.png' },
-  ]
-
-  const { loading, error, data } = useAppSelector((state) => state.groupsState)
+  const {
+    loading,
+    error,
+    data: groups,
+  } = useAppSelector((state) => state.groups)
   // Needs to match what's in our combineReducers when setting up this state ^^
 
   const dispatch = useAppDispatch()
@@ -19,18 +17,28 @@ export default function AllGroups() {
   }, [dispatch])
 
   return (
-    <div>
-      <h1>Groups</h1>
-      {groups.map((group) => (
-        <div key={group.id}>
-          <h3>{group.name}</h3>
-          <img
-            src={`./images/icons/${group.image}`}
-            alt={group.image}
-            className="w-10 h-10"
-          />
-        </div>
-      ))}
+    // largest box
+    <div className="flex bg-blue-200 justify-center h-full p-6 pb-60">
+      <h1 className="absolute pb-2">Groups</h1>
+      {/* the 2nd largest box */}
+      <div className="flex m-7 h-fit w-fit flex-wrap p-3">
+        {groups.map((group) => (
+          // boxes for each group - name + image
+          <div
+            key={group.id}
+            className="bg-white m-3 p-2 flex flex-col content-center justify-between h-40 w-40 border-2 border-black cursor-pointer"
+          >
+            <div className="bg-red-300 rounded-full h-24 w-24 flex justify-center p-2 ml-5">
+              <img
+                src={`./images/icons/${group.image}`}
+                alt={group.image}
+                className="w-20 h-20"
+              />
+            </div>
+            <p className="mt-1">{group.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
-import { ThunkAction } from '../store' // we'll use this later when we write thunk actions
-import { getGroups } from '../apiClient/groups' // use when we write thunk?
+import { ThunkAction } from '../store'
+import { getGroups } from '../apiClient/groups'
 import { Group } from '../../models/group'
 
 export const SET_GROUPS_PENDING = 'SET_GROUPS_PENDING'
@@ -45,14 +45,16 @@ export function fetchGroups(): ThunkAction {
   }
 }
 
-export function addGroup(newFruit: GroupCreate): ThunkAction {
-  return (dispatch) => {
-    return addNewGroup(newFruit)
-      .then((fruits) => {
-        dispatch(setFruitsSuccess(fruits))
-      })
-      .catch((err) => {
-        dispatch(setError(err.message))
-      })
-  }
-}
+// ADDING A NEW GROUP
+
+// export function addGroup(newFruit: GroupCreate): ThunkAction {
+//   return (dispatch) => {
+//     return addNewGroup(newGroup)
+//       .then((groups: Group[]) => {
+//         dispatch(setGroupsSuccess(groups))
+//       })
+//       .catch((err: Error) => {
+//         dispatch(setError(err.message))
+//       })
+//   }
+// }
