@@ -18,6 +18,7 @@ describe('// GET /api/v1/posts', () => {
         body: 'I found this really interesting book, you should check it out',
         image: '',
         created_at: 1680564029673,
+        users_username: 'brie',
       },
       {
         id: 2,
@@ -25,6 +26,7 @@ describe('// GET /api/v1/posts', () => {
         body: 'I found this really cool Italian place, they have the best food',
         image: '',
         created_at: 1680564029673,
+        users_username: 'brie',
       },
     ])
 
@@ -39,6 +41,7 @@ describe('// GET /api/v1/posts', () => {
           id: 1,
           image: '',
           user_id: 1,
+          users_username: 'brie',
         },
         {
           body: 'I found this really cool Italian place, they have the best food',
@@ -46,6 +49,7 @@ describe('// GET /api/v1/posts', () => {
           id: 2,
           image: '',
           user_id: 2,
+          users_username: 'brie',
         },
       ],
     })

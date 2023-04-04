@@ -9,7 +9,10 @@ function Posts({ id, body, image, created_at, users_username }: Post) {
   }).format(newDate)
 
   return (
-    <div className="border-2 border-black w-1/2 mx-auto mt-4 p-6">
+    <div
+      className="border-2 border-black w-1/2 mx-auto mt-4 p-6"
+      role="listitem"
+    >
       <a href={`/post/${id}`} className="text-french-blue">
         <h2>{body}</h2>
       </a>
