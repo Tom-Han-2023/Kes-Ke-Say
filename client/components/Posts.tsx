@@ -5,7 +5,7 @@ function Posts({ id, user_id, body, image, created_at }: Post) {
   //TODO get userName from get get all posts query
 
   return (
-    <div>
+    <div className="border-2 border-black w-1/2 mx-auto mt-4 p-6">
       <a href="#">
         <h2>{body}</h2>
       </a>
