@@ -32,7 +32,7 @@ describe('// GET /api/v1/posts', () => {
 
     expect(response.status).toBe(200)
     expect(response.body).toEqual({
-      response: [
+      posts: [
         {
           body: 'I found this really interesting book, you should check it out',
           created_at: 1680564029673,
