@@ -45,5 +45,3 @@ export interface Location {
   localtime_epoch: number
   localtime: string
 }
-
-//https://app.quicktype.io/?l=ts

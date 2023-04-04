@@ -2,7 +2,7 @@ export const RECEIVE_WEATHER = 'RECEIVE_WEATHER'
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
 export const FAILURE_WEATHER = 'FAILURE_WEATHER'
 import { WeatherData } from '../../models/weather'
-import { getWeather } from '../api/weather'
+import { getWeather } from '../apiClient/weather'
 import { ThunkAction } from '../store'
 
 export type WeatherAction =

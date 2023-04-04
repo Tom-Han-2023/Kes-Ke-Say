@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../hooks'
 import { fetchWeather } from '../actions/weatherAction'
 
 function Weather() {
-  const weather = useAppSelector((state) => state.weather)
+  const weather = useAppSelector((state) => state.weatherReducer)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -13,6 +13,8 @@ function Weather() {
 
     getWeatherData()
   }, [dispatch])
+
+  console.log(weather)
 
   if (weather.isLoading) {
     return <div>weather is loading</div>
