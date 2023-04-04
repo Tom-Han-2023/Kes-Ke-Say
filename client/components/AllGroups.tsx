@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { Group } from '../../models/group'
+import { useAppDispatch, useAppSelector } from '../hooks'
 
 export default function AllGroups() {
   // later groups is a prop - if we wanted to map data to a component?
@@ -7,16 +9,14 @@ export default function AllGroups() {
     { id: 2, name: 'The fast and the curious', image: 'car-darkgray.png' },
   ]
 
-  // With Redux but without Thunks Actions - HAVE TO WRITE SIMPLE ACTIONS FIRST
-  // useEffect(() => {
-  //   fruitsApi.getFruits()
-  //     .then(fruits => {
-  //       dispatch(setFruitsSuccess(fruits))
-  //     })
-  //     .catch(err => {
-  //       dispatch(setError(err.message))
-  //     })
-  // }, [dispatch])
+  const { loading, error, data } = useAppSelector((state) => state.groupsState)
+  // Needs to match what's in our combineReducers when setting up this state ^^
+
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchGroups())
+  }, [dispatch])
 
   return (
     <div>
