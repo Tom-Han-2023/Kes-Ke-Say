@@ -1,4 +1,10 @@
+//import { Dispatch } from 'react'
 import Post from '../../models/post'
+import { getAllPosts } from '../../server/db/functions/posts'
+import { getPosts } from '../apiClient/posts'
+
+import { Action, Dispatch } from 'redux'
+import { RootState, ThunkAction } from '../store'
 
 export const SET_POST_PENDING = 'SET_POST_PENDING'
 export const SET_POST_SUCCESS = 'SET_POST_SUCCESS'
@@ -17,3 +23,37 @@ export type PostAction =
       type: typeof SET_POST_ERROR
       payload: string
     }
+
+export function setPostPending(): PostAction {
+  return {
+    type: SET_POST_PENDING,
+    payload: null,
+  }
+}
+
+export function setPostSuccess(post: Post[]): PostAction {
+  return {
+    type: SET_POST_SUCCESS,
+    payload: post,
+  }
+}
+
+export function setPostError(errorMessage: string): PostAction {
+  return {
+    type: SET_POST_ERROR,
+    payload: errorMessage,
+  }
+}
+
+export function fetchPosts(): ThunkAction {
+  return (dispatch: Dispatch) => {
+    dispatch(setPostPending())
+    return getPosts()
+      .then((posts) => {
+        dispatch(setPostSuccess(posts))
+      })
+      .catch((err) => {
+        dispatch(setPostError(err.message))
+      })
+  }
+}

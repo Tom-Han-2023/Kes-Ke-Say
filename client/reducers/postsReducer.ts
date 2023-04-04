@@ -42,6 +42,7 @@ const initialState: PostState = {
       user_id: 3,
       body: 'We love REDUX!!!!!',
       image: '',
+
       created_at: 2023,
     },
   ],
