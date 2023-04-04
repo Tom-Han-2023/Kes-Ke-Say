@@ -1,10 +1,22 @@
 import { Group } from '../../models/group'
 
 export default function AllGroups() {
-  const groups = [
+  // later groups is a prop - if we wanted to map data to a component?
+  const groups: Group[] = [
     { id: 1, name: 'friendChips', image: 'fries-darkgray.png' },
     { id: 2, name: 'The fast and the curious', image: 'car-darkgray.png' },
   ]
+
+  // With Redux but without Thunks Actions - HAVE TO WRITE SIMPLE ACTIONS FIRST
+  // useEffect(() => {
+  //   fruitsApi.getFruits()
+  //     .then(fruits => {
+  //       dispatch(setFruitsSuccess(fruits))
+  //     })
+  //     .catch(err => {
+  //       dispatch(setError(err.message))
+  //     })
+  // }, [dispatch])
 
   return (
     <div>
