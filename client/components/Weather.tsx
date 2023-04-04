@@ -14,8 +14,6 @@ function Weather() {
     getWeatherData()
   }, [dispatch])
 
-  console.log(weather)
-
   if (weather.isLoading) {
     return <div className="ml-8">weather is loading</div>
   }
@@ -25,6 +23,8 @@ function Weather() {
   if (!weather.data) {
     return <div className="ml-8"></div>
   }
+
+  console.log(weather)
 
   return (
     <div className="ml-8 ">
