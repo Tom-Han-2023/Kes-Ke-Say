@@ -9,7 +9,7 @@ import Weather from '../Weather'
 describe('<Weather/>', () => {
   it('should render the weather component and demonstrate loading and when api call is finished', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/externalapi')
+      .get('/api/v1/externalapi/weather')
       .reply(200, {
         location: {
           name: 'Auckland',

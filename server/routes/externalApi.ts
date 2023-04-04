@@ -5,7 +5,7 @@ import request from 'superagent'
 const router = express.Router()
 
 // GET /api/v1/externalapi
-router.get('/', async (req, res) => {
+router.get('/weather', async (req, res) => {
   try {
     const API_KEY = process.env.API_KEY
     const userId = 'auth0|123'
