@@ -16,7 +16,9 @@ router.get('/', async (req, res) => {
     res.json(response.body)
   } catch (error) {
     console.log(error)
-    res.sendStatus(500)
+    res.status(500).json({
+      error: 'There was an error trying to get the users location :(',
+    })
   }
 })
 
