@@ -22,10 +22,11 @@ export default function UserProfilePage() {
   console.log(userProfile)
 
   if (!userProfile) return <> User not found</>
+  if (isLoading) return <>Loading...</>
+  if (error) return <>{error}</>
 
   return (
     <>
-      {/* <div className='box-border'> */}
       <div className="flex-col justify-center text-center">
         <br></br>
         <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mr-2">
@@ -36,24 +37,17 @@ export default function UserProfilePage() {
         </button>
         <br></br>
         <br></br>
-
-        {/* <div className="flex-col self-center text-center"> */}
-        {/* DISPLAY USER AVATAR  */}
         <img
           className="mx-auto block"
           src={`/images/avatars/${userProfile.image}`}
           alt="profileImage"
         />
-        {/* DISPLAY USERNAME */}
         <br></br>
         <p>{userProfile.username}</p>
         <br></br>
-        {/* DISPLAY FULL NAME */}
         <p>{userProfile.fullName}</p>
         <br></br>
-        {/* LOCATION */}
         <p>{userProfile.location}</p>
-        {/* EDIT PROFILE BUTTON */}
         <br></br>
         <button className="self-center bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ">
           Edit Profile

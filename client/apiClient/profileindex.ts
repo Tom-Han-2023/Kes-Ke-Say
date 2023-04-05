@@ -7,4 +7,3 @@ export function getUserInfo(username: string): Promise<User> {
     return res.body
   })
 }
-

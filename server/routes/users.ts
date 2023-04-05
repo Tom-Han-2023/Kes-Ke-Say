@@ -15,7 +15,7 @@ router.get('/:username', async (req, res) => {
   } catch (err) {
     console.log(err)
     res.status(500).json({
-      error: 'there was an error trying to get the user',
+      error: 'There was an error trying to get the user',
     })
   }
 })
