@@ -1,3 +1,4 @@
+import Weather from './Weather'
 import DateTime from './DateTime'
 
 function Footer() {
@@ -17,7 +18,7 @@ function Footer() {
               </p>
               <DateTime />
             </div>
-            <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-5">
               <div>
                 <p className="font-medium">Company</p>
                 <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
@@ -80,7 +81,9 @@ function Footer() {
                   </a>
                 </nav>
               </div>
+              <Weather />
             </div>
+            
           </div>
           <p className="mt-8 text-xs text-gray-800">
             © Tohorā 2023 | Kes-Ke-Say Limited
