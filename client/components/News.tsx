@@ -29,7 +29,16 @@ function News() {
     <div className="ml-8 ">
       <ul>
         {news.data.map((singleNews, index) => {
-          return <li key={index}>{singleNews.title}</li>
+          return (
+            <li key={index}>
+              <div><a href={singleNews.url}>Headline:{singleNews.title}</a></div>
+              <div>Author:{singleNews.author} </div>
+              <div>
+                Published:
+                {singleNews.publishedAt}
+              </div>
+            </li>
+          )
         })}
       </ul>
     </div>

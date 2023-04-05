@@ -42,6 +42,8 @@ describe('<News />', () => {
     expect(newsList[0]).toBeVisible()
     expect(newsList).toHaveLength(1)
     expect(newsList[0]).toHaveTextContent('Frénésie')
+    expect(newsList[0]).toHaveTextContent('Le Monde')
+    expect(newsList[0]).toHaveTextContent('2023-04-04T00:02:11Z')
     expect(scope.isDone()).toBeTruthy()
   })
   it('should not render anything if api call failed', async () => {

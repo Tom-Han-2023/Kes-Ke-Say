@@ -1,4 +1,4 @@
-import { FAILURE_NEWS, fetchNews, REQUEST_NEWS } from '../newsAction'
+import { FAILURE_NEWS, fetchNews } from '../newsAction'
 import { getNews } from '../../apiClient/news'
 import { RootState } from '../../store'
 jest.mock('../../apiClient/news')

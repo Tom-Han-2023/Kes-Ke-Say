@@ -8,8 +8,6 @@ import {
 import newsReducer from '../newsReducer'
 import type { NewsState } from '../newsReducer'
 
-const date = new Date(Date.now())
-
 const testItem: News[] = [
   {
     source: {
@@ -22,7 +20,7 @@ const testItem: News[] = [
     description: null,
     url: 'https://news.google.com/rss/articles/CBMiqAFodHRwczovL3d3dy5sZW1vbmRlLmZyL2ludGVybmF0aW9uYWwvYXJ0aWNsZS8yMDIzLzA0LzA0L2ZyZW5lc2llLW1lZGlhdGlxdWUtYXV0b3VyLWRlLWwtYXJyaXZlZS1kZS1kb25hbGQtdHJ1bXAtYS1uZXcteW9yay1sYS12ZWlsbGUtZGUtc2EtY29tcGFydXRpb25fNjE2ODEzM18zMjEwLmh0bWzSAQA?oc=5',
     urlToImage: null,
-    publishedAt: date,
+    publishedAt: '2023-04-04T00:02:11Z',
     content: null,
   },
   {
@@ -36,7 +34,7 @@ const testItem: News[] = [
     description: null,
     url: 'https://news.google.com/rss/articles/CBMimgFodHRwczovL3d3dy5iZm10di5jb20vaW50ZXJuYXRpb25hbC91bi1wcm9ibGVtZS1zYW5pdGFpcmUtbWFqZXVyLXNlbG9uLWwtb21zLXVuZS1wZXJzb25uZS1zdXItc2l4LWRhbnMtbGUtbW9uZGUtc291ZmZyZS1kLWluZmVydGlsaXRlX0FELTIwMjMwNDAzMDgzOS5odG1s0gGeAWh0dHBzOi8vd3d3LmJmbXR2LmNvbS9hbXAvaW50ZXJuYXRpb25hbC91bi1wcm9ibGVtZS1zYW5pdGFpcmUtbWFqZXVyLXNlbG9uLWwtb21zLXVuZS1wZXJzb25uZS1zdXItc2l4LWRhbnMtbGUtbW9uZGUtc291ZmZyZS1kLWluZmVydGlsaXRlX0FELTIwMjMwNDAzMDgzOS5odG1s?oc=5',
     urlToImage: null,
-    publishedAt: date,
+    publishedAt: '2023-04-04T00:02:11Z',
     content: null,
   },
 ]

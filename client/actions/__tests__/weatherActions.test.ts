@@ -1,11 +1,5 @@
-import {
-  FAILURE_WEATHER,
-  fetchWeather,
-  requestWeather,
-  REQUEST_WEATHER,
-} from '../weatherAction'
+import { FAILURE_WEATHER, fetchWeather } from '../weatherAction'
 import { getWeather } from '../../apiClient/weather'
-import { WeatherAction } from '../weatherAction'
 import { RootState } from '../../store'
 jest.mock('../../apiClient/weather')
 const dispatch = jest.fn()
