@@ -1,17 +1,16 @@
 import '@testing-library/jest-dom'
 import { screen, render } from '@testing-library/react'
-import { BrowserRouter as Router } from 'react-router-dom'
-
-import DateTime from '../DateTime'
+import { MemoryRouter as Router } from 'react-router-dom'
+import App from '../App'
 
 jest.useFakeTimers().setSystemTime(1663285276267)
-const clock = ['1:41:17', '16']
+const clock = ['01:41:16', '16']
 
 describe('<DateTime />', () => {
   it('renders time and date', () => {
     render(
       <Router>
-        <DateTime />
+        <App />
       </Router>
     )
     const heading = screen.getByTestId('heading')
@@ -21,21 +20,21 @@ describe('<DateTime />', () => {
   it('checks the DateTime component displays current time', async () => {
     render(
       <Router>
-        <DateTime />
+        <App />
       </Router>
     )
-    const time = await screen.findByTestId('time', {}, { timeout: 2000 })
-    expect(time).toContainHTML(clock[0])
+    const time = await screen.findByTestId('time', {})
+    expect(time.textContent).toMatch(clock[0])
     expect.assertions(1)
   })
   it('checks the DateTime component displays current date', async () => {
     render(
       <Router>
-        <DateTime />
+        <App />
       </Router>
     )
 
-    const date = await screen.findByTestId('date', {}, { timeout: 2000 })
+    const date = await screen.findByTestId('date', {})
     expect(date).toContainHTML(clock[1])
     expect.assertions(1)
   })
