@@ -1,0 +1,34 @@
+import { useEffect } from 'react'
+import { useAppSelector, useAppDispatch } from '../hooks'
+// import { getAllUsers } from '../actions/users'
+
+const AllProfiles = () => {
+  const dispatch = useAppDispatch()
+  const { data: users, loading, error } = useAppSelector((state) => state.users)
+
+  // useEffect(() => {
+  //   dispatch(getAllUsers())
+  // }, [dispatch])
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {users.map((user) => (
+        <div key={user.id} className="p-4 bg-gray-100 rounded-md">
+          <img
+            src={`/images/avatars/${user.image}`}
+            alt={`Profile of ${user.username}`}
+            className="w-32 h-32 rounded-full mx-auto"
+          />
+          <div className="text-center mt-2">
+            <h2 className="text-lg font-bold">{user.fullName}</h2>
+            <p className="text-gray-500">
+              @{user.username} &middot; {user.location}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default AllProfiles
