@@ -39,11 +39,7 @@ export function fetchWeather(): ThunkAction {
         dispatch(receiveWeather(weather))
       })
       .catch((err) => {
-        if (err instanceof Error) {
-          dispatch(failureWeather(err.message))
-        } else {
-          dispatch(failureWeather('An unknown error occurred'))
-        }
+        dispatch(failureWeather(err.message))
       })
   }
 }
