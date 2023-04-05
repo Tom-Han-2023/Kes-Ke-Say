@@ -3,6 +3,6 @@ import weatherReducer from './weatherReducer'
 import userProfileReducer from './userProfileReducer'
 
 export default combineReducers({
-  weatherReducer: weatherReducer,
+  weatherReducer,
   userProfile: userProfileReducer,
 })
