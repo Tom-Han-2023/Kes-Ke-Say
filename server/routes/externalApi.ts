@@ -23,4 +23,19 @@ router.get('/weather', async (req, res) => {
   }
 })
 
+router.get('/news', async (req, res) => {
+  try {
+    const NEWS_API_KEY = process.env.NEWS_API_KEY
+    const response = await request.get(
+      `https://newsapi.org/v2/top-headlines?country=fr&apiKey=${NEWS_API_KEY}`
+    )
+    res.json(response.body.articles)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({
+      error: 'There was an error trying to get news:(',
+    })
+  }
+})
+
 export default router
