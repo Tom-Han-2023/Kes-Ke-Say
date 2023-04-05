@@ -1,5 +1,7 @@
 import config from '../knexfile'
 
+
+
 describe('afterCreate PRAGMA', () => {
   it('enforces foreign keys (development)', () => {
     const cb = {}
@@ -8,4 +10,3 @@ describe('afterCreate PRAGMA', () => {
     expect(db.run).toHaveBeenCalledWith('PRAGMA foreign_keys = ON', cb)
   })
 })
-
