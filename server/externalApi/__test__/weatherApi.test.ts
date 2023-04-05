@@ -3,13 +3,15 @@ import { getWeatherData } from '../weatherApi'
 import nock from 'nock'
 
 describe('getWeatherData()', () => {
+  const env = process.env
+
   beforeEach(() => {
     // Mock the external API
-    const API_KEY = process.env.API_KEY
-    const location = 'Auckland'
+    jest.resetModules()
+    process.env = { ...env }
 
     nock('http://api.weatherapi.com')
-      .get(`/v1/current.json?key=${API_KEY}&q=${location}`)
+      .get(`/v1/current.json?key=MOCKAPI&q=Auckland`)
       .reply(200, {
         location: {
           name: 'Auckland',
@@ -56,9 +58,11 @@ describe('getWeatherData()', () => {
   afterEach(() => {
     // Clean up after the tests
     nock.cleanAll()
+    process.env = env
   })
 
   it('should return weather data from API', async () => {
+    process.env.API_KEY = 'MOCKAPI'
     const response = await getWeatherData('Auckland')
     expect(response.location.name).toBe('Auckland')
     expect(response.current.temp_c).toBe(17)
