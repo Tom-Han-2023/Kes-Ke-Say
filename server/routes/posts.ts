@@ -1,6 +1,6 @@
 import express from 'express'
 import { createPost, getAllPosts } from '../db/functions/posts'
-import Post from '../../models/post'
+import Post, { NewPost } from '../../models/post'
 
 const router = express.Router()
 
@@ -14,16 +14,18 @@ router.get('/', async (req, res) => {
   }
 })
 
+
+// POST /api/v1/posts
 router.post('/', async (req, res) => {
   try {
     const { user_id, body, image, created_at } = req.body
     if (!user_id) {
       res.status(400).send('The user id was missing')
     }
-    if (!created_at) {
+    if (user_id && !created_at) {
       res.status(400).send('The created date is missing')
     }
-    if (!body) {
+    if (user_id && !body) {
       res.status(400).send('the post body is missing')
     }
 
@@ -49,6 +51,5 @@ router.post('/', async (req, res) => {
     res.status(500)
   }
 })
-
 
 export default router
