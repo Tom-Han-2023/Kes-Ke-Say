@@ -25,7 +25,7 @@ export default function UserProfilePage() {
 
   return (
     <>
-    {/* <div className='box-border'> */}
+      {/* <div className='box-border'> */}
       <div className="flex-col justify-center text-center">
         <br></br>
         <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mr-2">
@@ -37,8 +37,7 @@ export default function UserProfilePage() {
         <br></br>
         <br></br>
 
-
-      {/* <div className="flex-col self-center text-center"> */}
+        {/* <div className="flex-col self-center text-center"> */}
         {/* DISPLAY USER AVATAR  */}
         <img
           className="mx-auto block"
@@ -48,10 +47,10 @@ export default function UserProfilePage() {
         {/* DISPLAY USERNAME */}
         <br></br>
         <p>{userProfile.username}</p>
-<br></br>
+        <br></br>
         {/* DISPLAY FULL NAME */}
         <p>{userProfile.fullName}</p>
-<br></br>
+        <br></br>
         {/* LOCATION */}
         <p>{userProfile.location}</p>
         {/* EDIT PROFILE BUTTON */}

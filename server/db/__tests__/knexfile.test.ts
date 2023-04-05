@@ -8,3 +8,4 @@ describe('afterCreate PRAGMA', () => {
     expect(db.run).toHaveBeenCalledWith('PRAGMA foreign_keys = ON', cb)
   })
 })
+
