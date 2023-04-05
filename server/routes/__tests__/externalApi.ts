@@ -10,9 +10,8 @@ beforeEach(() => {
 
 describe('GET /api/v1/externalApi/weather', () => {
   it("returns the weather data for a user's location by id", async () => {
-    jest
-      .mocked(db.getUserLocation)
-      .mockResolvedValue([{ location: 'Auckland' }])
+    const name = 'Auckland'
+    jest.mocked(db.getUserLocation).mockResolvedValue([{ location: name }])
 
     const response = await request(server).get('/api/v1/externalApi/weather')
 

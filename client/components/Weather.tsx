@@ -18,13 +18,13 @@ function Weather() {
     return <div className="ml-8">weather is loading</div>
   }
   if (weather.error) {
-    return <div className="ml-8">{weather.error}</div>
+    return <></>
   }
   if (!weather.data) {
     return <div className="ml-8"></div>
   }
 
-  console.log(weather)
+ 
 
   return (
     <div className="ml-8 ">

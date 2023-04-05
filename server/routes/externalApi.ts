@@ -12,7 +12,7 @@ router.get('/weather', async (req, res) => {
     const [{ location }] = await getUserLocation(userId)
 
     const response = await request.get(
-      `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}`
+      `http://api.weatherap.com/v1/current.json?key=${API_KEY}&q=${location}`
     )
     res.json(response.body)
   } catch (error) {
@@ -24,7 +24,3 @@ router.get('/weather', async (req, res) => {
 })
 
 export default router
-
-//http://api.weatherapi.com/v1/current.json?key=067a3bb5825e446cbb0230739230304&q=wellington
-//http://api.weatherapi.com/v1/current.json?key=APIKEY&q=location
-//{q: location}
