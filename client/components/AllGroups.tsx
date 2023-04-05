@@ -25,6 +25,7 @@ export default function AllGroups() {
         {groups.map((group) => (
           // boxes for each group - name + image
           <div
+            role="gridcell"
             key={group.id}
             className="bg-white m-3 p-2 flex flex-col content-center justify-between h-40 w-40 border-2 border-black cursor-pointer"
           >

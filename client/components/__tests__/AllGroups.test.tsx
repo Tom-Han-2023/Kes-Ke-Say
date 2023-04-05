@@ -32,15 +32,12 @@ describe('<AllGroups />', () => {
       </MemoryRouter>
     )
     // ACT
-    // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
-    const groupImgs = await screen.findAllByRole('img')
-
-    // image
-    // ptags with name of each group
+    const groupCards = await screen.findAllByRole('gridcell')
 
     // ASSERT
-    expect(groupImgs[0]).toBeVisible()
-    // expect(groupImgs).toHaveLength(2) <-- why is this failing?
+    expect(groupCards[0]).toBeVisible()
+    expect(groupCards).toHaveLength(2)
+    expect(groupCards[1]).toHaveTextContent('The fast and the curious')
     expect(scope.isDone()).toBeTruthy()
   })
 })
