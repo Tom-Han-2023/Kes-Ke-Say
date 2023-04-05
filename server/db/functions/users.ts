@@ -1,5 +1,10 @@
-import { User, UserSnakeCase } from '../../../models/user'
 import connection from '../connection'
+
+export function getUserLocation(id: string, db = connection) {
+  return db('users').where({ auth0_id: id }).select('location')
+}
+import { User, UserSnakeCase } from '../../../models/user'
+
 
 export function getUser(username: string, db = connection): Promise<User> {
   return db<UserSnakeCase>('users')
