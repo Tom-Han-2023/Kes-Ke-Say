@@ -45,16 +45,3 @@ export function fetchGroups(): ThunkAction {
   }
 }
 
-// ADDING A NEW GROUP
-
-// export function addGroup(newFruit: GroupCreate): ThunkAction {
-//   return (dispatch) => {
-//     return addNewGroup(newGroup)
-//       .then((groups: Group[]) => {
-//         dispatch(setGroupsSuccess(groups))
-//       })
-//       .catch((err: Error) => {
-//         dispatch(setError(err.message))
-//       })
-//   }
-// }

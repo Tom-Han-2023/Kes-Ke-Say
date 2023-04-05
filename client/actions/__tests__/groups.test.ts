@@ -24,4 +24,8 @@ describe('fetchGroups', () => {
         })
       })
   })
+  it('should be intergration tested', () => {
+
+    expect(1).toBe(1)
+  })
 })

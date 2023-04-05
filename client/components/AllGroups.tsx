@@ -16,9 +16,13 @@ export default function AllGroups() {
     dispatch(fetchGroups())
   }, [dispatch])
 
+
+
   return (
     // largest box
     <div className="flex bg-blue-200 justify-center h-full p-6 pb-60">
+      {error && <p>{error}</p>}
+      {loading && <img src='Hour-Glass.gif' alt='try again'/>}
       <h1 className="absolute pb-2">Groups</h1>
       {/* the 2nd largest box */}
       <div className="flex m-7 h-fit w-fit flex-wrap p-3">
