@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom'
 import { screen, render } from '@testing-library/react'
-import { MemoryRouter, MemoryRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { MemoryRouter as Router } from 'react-router-dom'
+import { intialiseStore } from '../../store'
 import App from '../App'
 import { Provider } from 'react-redux'
 import { intialiseStore } from '../../store'
@@ -11,11 +13,11 @@ const clock = ['01:41:16', '16']
 describe('<DateTime />', () => {
   it('renders time and date', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <Provider store={intialiseStore()}>
+      <Provider store={intialiseStore()}>
+        <Router>
           <App />
-        </Provider>
-      </MemoryRouter>
+        </Router>
+      </Provider>
     )
 
     const heading = screen.getByTestId('heading')
@@ -24,11 +26,11 @@ describe('<DateTime />', () => {
   })
   it('checks the DateTime component displays current time', async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <Provider store={intialiseStore()}>
+      <Provider store={intialiseStore()}>
+        <Router>
           <App />
-        </Provider>
-      </MemoryRouter>
+        </Router>
+      </Provider>
     )
 
     const time = await screen.findByTestId('time', {})
@@ -37,11 +39,11 @@ describe('<DateTime />', () => {
   })
   it('checks the DateTime component displays current date', async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
-        <Provider store={intialiseStore()}>
+      <Provider store={intialiseStore()}>
+        <Router>
           <App />
-        </Provider>
-      </MemoryRouter>
+        </Router>
+      </Provider>
     )
 
 
