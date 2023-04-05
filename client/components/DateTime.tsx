@@ -1,27 +1,28 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function DateTime() {
   const [clock, setClock] = useState<string[]>([])
 
-  function refreshClock() {
+  const refreshClock = useCallback(() => {
     const d = new Date()
     const localTime = d.getTime()
     const localOffset = d.getTimezoneOffset() * 60000
     const utc = localTime + localOffset
     const paris = utc + 3600000 * 2
     const newParis = new Date(paris)
-    const parisTime = newParis.toLocaleTimeString()
-    const parisDate = newParis.toLocaleDateString()
+    const parisTime = newParis.toLocaleTimeString('en-NZ', { hour12: false })
+    const parisDate = newParis.toLocaleDateString('en-NZ')
 
     setClock([parisTime, parisDate])
-  }
+  }, [])
 
   useEffect(() => {
+    refreshClock()
     const token = setInterval(refreshClock, 1000)
     return () => {
       clearInterval(token)
     }
-  }, [])
+  }, [refreshClock])
 
   return (
     <div>
