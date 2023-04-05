@@ -1,5 +1,9 @@
 import '@testing-library/jest-dom'
-import { screen, render, getByText } from '@testing-library/react'
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react'
 import { Provider } from 'react-redux'
 import nock from 'nock'
 
@@ -67,18 +71,21 @@ describe('<Weather/>', () => {
     expect(locationName).toBeInTheDocument()
     expect(scope.isDone()).toBeTruthy()
   })
-  // it('should display the error message when api call was unsuccessful', async () => {
-  //   const scope = nock('http://localhost')
-  //     .get('/api/v1/externalapi/weather')
-  //     .reply(500, {
-  //       error: 'There was an error trying to get the users location :(',
-  //     })
-  //   render(
-  //     <Provider store={intialiseStore()}>
-  //       <Weather />
-  //     </Provider>
-  //   )
-  //   const error = await screen.findByText('Internal')
-  //   screen.debug()
-  // })
+  it('should display the error message when api call was unsuccessful', async () => {
+    const scope = nock('http://localhost')
+      .get('/api/v1/externalapi/weather')
+      .reply(500, {
+        error: 'There was an error trying to get the users location :(',
+      })
+    render(
+      <Provider store={intialiseStore()}>
+        <Weather />
+      </Provider>
+    )
+    await screen.getByText('weather is loading')
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText('weather is loading')
+    )
+    expect(scope.isDone).toBeTruthy()
+  })
 })

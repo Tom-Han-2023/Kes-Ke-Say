@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import LandingPage from './LandingPage'
 import MainLayout from './MainLayout'
 import Home from './Home'
+import News from './News'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="groups" element={<div>AllGroups</div>} />
         <Route path="groups/add" element={<div>GroupProfileForm</div>} />
         <Route path="groups/:id" element={<div>Group</div>} />
+        <Route path="/news" element={<News />} />
       </Route>
       <Route path="/login" element={<LandingPage />} />
     </Routes>
