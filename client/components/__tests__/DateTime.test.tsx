@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom'
 import { screen, render } from '@testing-library/react'
-import { Provider } from 'react-redux'
 import { MemoryRouter as Router } from 'react-router-dom'
-import { intialiseStore } from '../../store'
 import App from '../App'
 import { Provider } from 'react-redux'
 import { intialiseStore } from '../../store'
