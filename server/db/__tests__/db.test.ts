@@ -1,8 +1,5 @@
-// LETS DO OUR DB TESTS HERE
-
 import knex from 'knex'
 import config from '../knexfile'
-// import { Group } from '../../../models/group'
 const testConnection = knex(config.test)
 
 import { getAllGroups } from '../functions/groups'

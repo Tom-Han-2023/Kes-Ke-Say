@@ -9,7 +9,6 @@ import { intialiseStore } from '../../store'
 
 describe('<AllGroups />', () => {
   it('successfully shows a list of groups', async () => {
-    // ARRANGE
     const scope = nock('http://localhost')
       .get('/api/v1/groups')
       .reply(200, {
@@ -23,7 +22,6 @@ describe('<AllGroups />', () => {
         ],
       })
 
-    // this just renders everything?
     render(
       <MemoryRouter initialEntries={['/groups']}>
         <Provider store={intialiseStore()}>
@@ -31,13 +29,13 @@ describe('<AllGroups />', () => {
         </Provider>
       </MemoryRouter>
     )
-    // ACT
+
     const groupCards = await screen.findAllByRole('gridcell')
 
-    // ASSERT
     expect(groupCards[0]).toBeVisible()
     expect(groupCards).toHaveLength(2)
     expect(groupCards[1]).toHaveTextContent('The fast and the curious')
     expect(scope.isDone()).toBeTruthy()
   })
+  it.todo('shows the loading state')
 })

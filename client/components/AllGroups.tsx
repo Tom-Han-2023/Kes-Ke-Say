@@ -8,7 +8,6 @@ export default function AllGroups() {
     error,
     data: groups,
   } = useAppSelector((state) => state.groups)
-  // Needs to match what's in our combineReducers when setting up this state ^^
 
   const dispatch = useAppDispatch()
 
@@ -16,18 +15,13 @@ export default function AllGroups() {
     dispatch(fetchGroups())
   }, [dispatch])
 
-
-
   return (
-    // largest box
     <div className="flex bg-blue-200 justify-center h-full p-6 pb-60">
       {error && <p>{error}</p>}
-      {loading && <img src='Hour-Glass.gif' alt='try again'/>}
+      {loading && <img src="Hour-Glass.gif" alt="try again" />}
       <h1 className="absolute pb-2">Groups</h1>
-      {/* the 2nd largest box */}
       <div className="flex m-7 h-fit w-fit flex-wrap p-3">
         {groups.map((group) => (
-          // boxes for each group - name + image
           <div
             role="gridcell"
             key={group.id}
