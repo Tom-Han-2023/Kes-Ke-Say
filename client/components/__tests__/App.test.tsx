@@ -1,10 +1,8 @@
-//https://github.com/tohora-2023/code-from-class/blob/main/week6/tue-pm/client/components/__tests__/Fruits.test.tsx
 import nock from 'nock'
 
 import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { screen, render, within } from '@testing-library/react'
-import userEvent from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 
 import '@testing-library/jest-dom'
 

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 function PostFeed() {
-  const { loading, error, data } = useAppSelector((state) => state.posts)
+  const { data } = useAppSelector((state) => state.posts)
   const dispatch = useAppDispatch()
   const [posts, setPosts] = useState([] as Post[])
 

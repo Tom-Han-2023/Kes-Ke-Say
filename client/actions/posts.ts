@@ -1,10 +1,8 @@
-//import { Dispatch } from 'react'
 import Post from '../../models/post'
-import { getAllPosts } from '../../server/db/functions/posts'
 import { getPosts } from '../apiClient/posts'
 
-import { Action, Dispatch } from 'redux'
-import { RootState, ThunkAction } from '../store'
+import { Dispatch } from 'redux'
+import { ThunkAction } from '../store'
 
 export const SET_POST_PENDING = 'SET_POST_PENDING'
 export const SET_POST_SUCCESS = 'SET_POST_SUCCESS'
