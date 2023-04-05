@@ -30,3 +30,24 @@ describe('get all posts', () => {
     })
   })
 })
+
+describe('create a post', () => {
+  test('it should add a post in the database', async () => {
+    const post = {
+      user_id: 1,
+      body: 'Test Post',
+      image: '/image.jpg',
+      created_at: 1680564022529,
+    }
+
+    await db.createPost(post, testConnection)
+
+    await db.getAllPosts(testConnection).then((post: Post[]) => {
+      expect(post).toHaveLength(5)
+      expect(post[4].user_id).toBe(1)
+      expect(post[4].body).toBe('Test Post')
+      expect(post[4].image).toBe('/image.jpg')
+      expect(post[4].created_at).toBe(1680564022529)
+    })
+  })
+})
