@@ -1,5 +1,6 @@
 import Weather from './Weather'
 import DateTime from './DateTime'
+import NewsButton from './NewsButton'
 
 function Footer() {
   return (
@@ -18,72 +19,9 @@ function Footer() {
               </p>
               <DateTime />
             </div>
-            <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-5">
-              <div>
-                <p className="font-medium">Company</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="#">
-                    About
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Meet the Team
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    History
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Careers
-                  </a>
-                </nav>
-              </div>
-              <div>
-                <p className="font-medium">Services</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="#">
-                    Something
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Company Review
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    SEO Optimisation
-                  </a>
-                </nav>
-              </div>
-              <div>
-                <p className="font-medium">Helpful Links</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="#">
-                    Contact
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    FAQs
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Live Chat
-                  </a>
-                </nav>
-              </div>
-              <div>
-                <p className="font-medium">Legal</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                  <a className="hover:opacity-75" href="#">
-                    Privacy Policy
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Terms &amp; Conditions
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Returns Policy
-                  </a>
-                  <a className="hover:opacity-75" href="#">
-                    Accessibility
-                  </a>
-                </nav>
-              </div>
-              <Weather />
-            </div>
-            
+            <NewsButton />
+
+            <Weather />
           </div>
           <p className="mt-8 text-xs text-gray-800">
             © Tohorā 2023 | Kes-Ke-Say Limited

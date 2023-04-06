@@ -13,7 +13,7 @@ import News from '../News'
 describe('<News />', () => {
   it('should render News component currently, when its requesting api and rendering the news', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/externalapi/news')
+      .get('/api/v1/newsapi')
       .reply(200, [
         {
           source: {
@@ -36,19 +36,19 @@ describe('<News />', () => {
       </Provider>
     )
 
-    const loading = await screen.getByText('news is loading')
+    const loading = await screen.getByText('news is loading...')
     expect(loading).toBeInTheDocument()
     const newsList = await screen.findAllByRole('listitem')
     expect(newsList[0]).toBeVisible()
     expect(newsList).toHaveLength(1)
     expect(newsList[0]).toHaveTextContent('Frénésie')
     expect(newsList[0]).toHaveTextContent('Le Monde')
-    expect(newsList[0]).toHaveTextContent('2023-04-04T00:02:11Z')
+    expect(newsList[0]).toHaveTextContent(`2023-04-04 00:02`)
     expect(scope.isDone()).toBeTruthy()
   })
   it('should not render anything if api call failed', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/externalapi/news')
+      .get('/api/v1/newsapi')
       .reply(500, { error: 'there was an error' })
 
     render(
@@ -56,8 +56,10 @@ describe('<News />', () => {
         <News />
       </Provider>
     )
-    await screen.getByText('news is loading')
-    await waitForElementToBeRemoved(() => screen.queryByText('news is loading'))
+    await screen.getByText('news is loading...')
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText('news is loading...')
+    )
 
     expect(scope.isDone).toBeTruthy()
   })

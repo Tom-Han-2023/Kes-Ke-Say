@@ -13,7 +13,7 @@ import Weather from '../Weather'
 describe('<Weather/>', () => {
   it('should render the weather component and demonstrate loading and when api call is finished', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/externalapi/weather')
+      .get('/api/v1/weatherapi')
       .reply(200, {
         location: {
           name: 'Auckland',
@@ -73,7 +73,7 @@ describe('<Weather/>', () => {
   })
   it('should display the error message when api call was unsuccessful', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/externalapi/weather')
+      .get('/api/v1/weatherapi')
       .reply(500, {
         error: 'There was an error trying to get the users location :(',
       })
