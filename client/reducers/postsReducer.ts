@@ -2,8 +2,9 @@ import {
   SET_POST_PENDING,
   SET_POST_SUCCESS,
   SET_POST_ERROR,
+  ADD_POST_SUCCESS,
   PostAction,
-} from '../actions/index'
+} from '../actions/posts'
 import Post from '../../models/post'
 
 export interface PostState {
@@ -37,6 +38,12 @@ const postReducer = (state = initialState, action: PostAction): PostState => {
         loading: false,
         error: action.payload,
         data: [],
+      }
+    case ADD_POST_SUCCESS:
+      return {
+        loading: false,
+        error: undefined,
+        data: [...state.data, action.payload],
       }
     default:
       return state

@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-
 // POST /api/v1/posts
 router.post('/', async (req, res) => {
   try {

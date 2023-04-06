@@ -1,4 +1,4 @@
-import Post from '../../models/post'
+import Post, { NewPost } from '../../models/post'
 import { getPosts } from '../apiClient/posts'
 import { addPost } from '../apiClient/posts'
 
@@ -69,7 +69,7 @@ export function fetchPosts(): ThunkAction {
   }
 }
 
-export function addNewPost(newPost: Post): ThunkAction {
+export function addNewPost(newPost: NewPost): ThunkAction {
   return (dispatch: Dispatch) => {
     return addPost(newPost)
       .then((post) => {
