@@ -22,7 +22,7 @@ export default function AllGroups() {
         <img
           role="status"
           src="./images/loading/Hour-Glass.gif"
-          alt="try again"
+          alt="loading-hourglass"
         />
       )}
       <h1 className="absolute pb-2">Groups</h1>

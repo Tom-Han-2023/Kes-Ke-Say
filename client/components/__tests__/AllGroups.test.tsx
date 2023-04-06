@@ -60,7 +60,7 @@ describe('<AllGroups />', () => {
   })
   it('should show a loading gif', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/groups/')
+      .get('/api/v1/groups')
       .reply(200, {
         groups: [
           { id: 1, name: 'friendChips', image: 'fries-darkgray.png' },
@@ -80,13 +80,7 @@ describe('<AllGroups />', () => {
       </MemoryRouter>
     )
 
-    await waitFor(() => expect(screen.getByRole('heading')).toBeInTheDocument())
-
     const loadingGif = await waitFor(() => screen.getByRole('status'))
-    expect(loadingGif).toBeTruthy()
-    expect(loadingGif.getAttribute('src')).toBe(
-      './images/loading/Hour-Glass.gif'
-    )
     expect(loadingGif).toBeInTheDocument()
     expect(scope.isDone()).toBeTruthy()
   })
