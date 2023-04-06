@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-
+import AllGroups from './AllGroups'
 import LandingPage from './LandingPage'
 import MainLayout from './MainLayout'
 import Home from './Home'
@@ -16,7 +16,7 @@ function App() {
         <Route path="profiles/:username" element={<div>Profile</div>} />
         <Route path="post" element={<div>AddPost</div>} />
         <Route path="post/:id" element={<div>Post</div>} />
-        <Route path="groups" element={<div>AllGroups</div>} />
+        <Route path="groups" element={<AllGroups />} />
         <Route path="groups/add" element={<div>GroupProfileForm</div>} />
         <Route path="groups/:id" element={<div>Group</div>} />
       </Route>
