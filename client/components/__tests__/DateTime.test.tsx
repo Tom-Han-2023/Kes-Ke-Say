@@ -17,6 +17,7 @@ describe('<DateTime />', () => {
         </Router>
       </Provider>
     )
+
     const heading = screen.getByTestId('heading')
     expect(heading).toHaveTextContent(/Date.*Time in Paris/)
     expect.assertions(1)
@@ -29,6 +30,7 @@ describe('<DateTime />', () => {
         </Router>
       </Provider>
     )
+
     const time = await screen.findByTestId('time', {})
     expect(time.textContent).toMatch(clock[0])
     expect.assertions(1)
