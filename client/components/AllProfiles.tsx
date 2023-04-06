@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
-// import { getAllUsers } from '../actions/users'
+import { getAllProfiles } from '../actions/users'
 
 const AllProfiles = () => {
   const dispatch = useAppDispatch()
   const { data: users, loading, error } = useAppSelector((state) => state.users)
 
-  // useEffect(() => {
-  //   dispatch(getAllUsers())
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllProfiles())
+  }, [dispatch])
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

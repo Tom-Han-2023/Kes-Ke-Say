@@ -1,28 +1,42 @@
 import { User } from '../../models/user'
-
+import { UserAction } from '../actions/users'
 
 interface UserState {
   loading: boolean
-  error: string | undefined 
+  error: string | undefined
   data: User[]
 }
 
 const initialState: UserState = {
   loading: false,
   error: undefined,
-  data: [{
-    id: 1,
-    auth0Id: 'auth0|123',
-    username: 'paige',
-    fullName: 'Paige Turner',
-    location: 'Auckland',
-    image: 'ava-03.png',
-}]
+  data: [],
 }
 
-const reducer = (state = initialState, action: any): UserState => {
-  switch(action.type) {
-    default: return state
+const reducer = (state = initialState, action: UserAction): UserState => {
+  const { type, payload } = action
+  switch (type) {
+    case 'GET_ALL_PROFILES_REQUEST':
+      return {
+        loading: true,
+        error: undefined,
+        data: [],
+      }
+    case 'GET_ALL_PROFILES_SUCCESS':
+      return {
+        loading: false,
+        error: undefined,
+        data: payload,
+      }
+
+    case 'GET_ALL_PROFILES_ERROR':
+      return {
+        loading: false,
+        error: payload,
+        data: [],
+      }
+    default:
+      return state
   }
 }
 
