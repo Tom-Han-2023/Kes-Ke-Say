@@ -7,9 +7,11 @@ import { Provider } from 'react-redux'
 import AddPost from '../AddPost'
 import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
+
 const mockStore = configureStore([thunk])
 const initialState = { post: { body: 'this is a test' } }
 const store = mockStore(initialState)
+
 describe('<AddPost />', () => {
   it('should add a post', async () => {
     nock('http://localhost')
