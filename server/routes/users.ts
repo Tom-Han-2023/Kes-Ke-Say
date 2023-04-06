@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   try {
     const users: User[] = await getAllProfiles()
-    return res.json({ users: users })
+    res.status(200).json({users: users})
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'Internal Server Error' })
