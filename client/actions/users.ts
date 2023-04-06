@@ -1,5 +1,4 @@
 import { ThunkAction } from '../store'
-//
 import { fetchallProfiles } from '../apiClient/users'
 import { User } from '../../models/user'
 

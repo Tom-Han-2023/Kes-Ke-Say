@@ -11,18 +11,21 @@ const AllProfiles = () => {
     dispatch(getAllProfiles())
   }, [dispatch])
 
-  if (loading)
+  if (loading) {
     return (
       <div className="bg-blue-500 text-white font-bold rounded-t px-4 py-2 text-center animate-pulse">
         Loading..
       </div>
     )
-  if (error)
+  }
+
+  if (error) {
     return (
       <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2 text-center animate-pulse">
         ERROR: {error}
       </div>
     )
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

@@ -35,5 +35,33 @@ describe('<AllProfiles />', () => {
 
       const image = await waitFor(() => screen.getByAltText(/profile of/i))
       expect(image).toBeInTheDocument()
+      expect(scope.isDone()).toBeTruthy()
   })
+  it('should return an error', async () => {
+    const scope = nock('http://localhost')
+      .get('/api/v1/users')
+      .reply(500, {
+        users: [
+          {
+            id: 1,
+            auth0_id: 'auth0|123',
+            username: 'paige',
+            full_name: 'Paige Turner',
+            location: 'Auckland',
+            image: 'ava-03.png',
+          },
+        ],
+      })
+      render(
+        <MemoryRouter initialEntries={['/profiles']}>
+          <Provider store={intialiseStore()}>
+            <App />
+          </Provider>
+        </MemoryRouter>
+      )
+      const error = await waitFor(() => screen.getByText(/error/i))
+      expect(error).toBeInTheDocument()
+      expect(scope.isDone()).toBeTruthy()
+  })
+  
 })
