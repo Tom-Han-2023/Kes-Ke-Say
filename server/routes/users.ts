@@ -1,16 +1,28 @@
 import express from 'express'
-import { getAllProfiles, User } from '../db/functions/users'
+import { getAllProfiles, getUser } from '../db/functions/users'
+import { User } from '../../models/user'
 
 const router = express.Router()
 
-// GET /api/v1/users
 router.get('/', async (req, res) => {
   try {
     const users: User[] = await getAllProfiles()
-    res.status(200).json({users: users})
+    res.status(200).json({ users: users })
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'Internal Server Error' })
+  }
+})
+
+router.get('/:username', async (req, res) => {
+  try {
+    const user = await getUser(req.params.username)
+    res.status(200).json(user)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({
+      error: 'There was an error trying to get the user',
+    })
   }
 })
 

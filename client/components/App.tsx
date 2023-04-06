@@ -5,6 +5,7 @@ import MainLayout from './MainLayout'
 import Home from './Home'
 import AddPost from './AddPost'
 import AllProfiles from './AllProfiles'
+import UserProfilePage from './UserProfilePage'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="register" element={<div>Register</div>} />
         <Route path="profiles" element={<AllProfiles />} />
-        <Route path="profiles/:username" element={<div>Profile</div>} />
+        <Route path="profiles/:username" element={<UserProfilePage />} />
         <Route path="post" element={<AddPost />} />
         <Route path="post/:id" element={<div>Post</div>} />
         <Route path="groups" element={<AllGroups />} />
