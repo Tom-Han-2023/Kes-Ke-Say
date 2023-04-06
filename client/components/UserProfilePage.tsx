@@ -19,8 +19,6 @@ export default function UserProfilePage() {
     }
   }, [dispatch, username])
 
-  // console.log(userProfile)
-
   if (isLoading) return <>Loading...</>
   if (error) return <>An error occurred</>
   if (!userProfile) return <> User not found</>
@@ -59,4 +57,3 @@ export default function UserProfilePage() {
   )
 }
 
-//
