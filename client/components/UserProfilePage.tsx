@@ -1,7 +1,6 @@
 import { fetchUserInfo } from '../actions'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { useParams } from 'react-router-dom'
-
 import { useEffect } from 'react'
 
 export default function UserProfilePage() {
@@ -26,34 +25,24 @@ export default function UserProfilePage() {
   return (
     <>
       <div className="flex-col justify-center text-center">
-        <br></br>
-        <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mr-2">
+        <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mr-2 mb-5 mt-5">
           View All Posts by User
         </button>
-        <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ml-2">
+        <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ml-2 mb-5">
           View All Profiles
         </button>
-        <br></br>
-        <br></br>
         <img
-          className="mx-auto block"
+          className="mx-auto block mb-5"
           src={`/images/avatars/${userProfile.image}`}
           alt="profileImage"
         />
-        <br></br>
-        <p>{userProfile.username}</p>
-        <br></br>
-        <p>{userProfile.fullName}</p>
-        <br></br>
-        <p>{userProfile.location}</p>
-        <br></br>
-        <button className="self-center bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ">
+        <p className="mb-5">{userProfile.username}</p>
+        <p className="mb-5">{userProfile.fullName}</p>
+        <p className="mb-5">{userProfile.location}</p>
+        <button className="self-center bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mb-5">
           Edit Profile
         </button>
-        <br></br>
-        <br></br>
       </div>
     </>
   )
 }
-

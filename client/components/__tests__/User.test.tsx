@@ -25,7 +25,7 @@ describe('<UserProfilePage />', () => {
       </MemoryRouter>
     )
 
-    await waitFor(() => expect(screen.getByText('Profile')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByRole('link', {name: 'Profile'})).toBeInTheDocument())
     const loadingBanner = await screen.getByText('Loading...')
     expect(loadingBanner).toBeInTheDocument()
     expect(scope.isDone()).toBeTruthy()
@@ -44,7 +44,7 @@ describe('<UserProfilePage />', () => {
       </MemoryRouter>
     )
 
-    await waitFor(() => expect(screen.getByText('Profile')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByRole('link', {name: 'Profile'})).toBeInTheDocument())
 
     const errorBanner = await waitFor(() =>
       screen.getByText('An error occurred')
