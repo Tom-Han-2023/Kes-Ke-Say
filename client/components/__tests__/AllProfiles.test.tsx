@@ -2,7 +2,7 @@ import nock from 'nock'
 
 import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { screen, render } from '@testing-library/react'
+import { screen, render, waitFor } from '@testing-library/react'
 
 import '@testing-library/jest-dom'
 
@@ -10,11 +10,11 @@ import App from '../App'
 import { intialiseStore } from '../../store'
 
 describe('<AllProfiles />', () => {
-  it('should show a loading banner', async () => {
+  it('should show a list of users', async () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/users/')
+      .get('/api/v1/users')
       .reply(200, {
-        posts: [
+        users: [
           {
             id: 1,
             auth0_id: 'auth0|123',
@@ -26,13 +26,14 @@ describe('<AllProfiles />', () => {
         ],
       })
       render(
-        <MemoryRouter initialEntries={['/']}>
+        <MemoryRouter initialEntries={['/profiles']}>
           <Provider store={intialiseStore()}>
             <App />
           </Provider>
         </MemoryRouter>
       )
 
-    await 
+      const image = await waitFor(() => screen.getByAltText(/profile of/i))
+      expect(image).toBeInTheDocument()
   })
 })
