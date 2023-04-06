@@ -19,7 +19,7 @@ export default function UserProfilePage() {
     }
   }, [dispatch, username])
 
-  console.log(userProfile)
+  // console.log(userProfile)
 
   if (isLoading) return <>Loading...</>
   if (error) return <>An error occurred</>
