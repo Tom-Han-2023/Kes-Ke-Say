@@ -34,6 +34,48 @@ describe('<AllGroups />', () => {
 
     expect(groupCards[0]).toBeVisible()
     expect(groupCards).toHaveLength(2)
+    expect(groupCards).toMatchInlineSnapshot(`
+      [
+        <div
+          class="bg-white m-3 p-2 flex flex-col content-center justify-between h-40 w-40 border-2 border-black cursor-pointer"
+          role="gridcell"
+        >
+          <div
+            class="bg-red-300 rounded-full h-24 w-24 flex justify-center p-2 ml-5"
+          >
+            <img
+              alt="fries-darkgray.png"
+              class="w-20 h-20"
+              src="./images/icons/fries-darkgray.png"
+            />
+          </div>
+          <p
+            class="mt-1"
+          >
+            friendChips
+          </p>
+        </div>,
+        <div
+          class="bg-white m-3 p-2 flex flex-col content-center justify-between h-40 w-40 border-2 border-black cursor-pointer"
+          role="gridcell"
+        >
+          <div
+            class="bg-red-300 rounded-full h-24 w-24 flex justify-center p-2 ml-5"
+          >
+            <img
+              alt="car-darkgray.png"
+              class="w-20 h-20"
+              src="./images/icons/car-darkgray.png"
+            />
+          </div>
+          <p
+            class="mt-1"
+          >
+            The fast and the curious
+          </p>
+        </div>,
+      ]
+    `)
     expect(groupCards[1]).toHaveTextContent('The fast and the curious')
     expect(scope.isDone()).toBeTruthy()
   })
