@@ -38,7 +38,7 @@ it('returns 500 when the database fails', async () => {
   
   jest.mocked(db.getUser).mockRejectedValue(new Error('it did not work'))
   jest.spyOn(console, 'error').mockImplementation(() => {})
-  
+
   const response = await request(server).get('/api/v1/users/ida')
 
   expect(response.status).toBe(500)

@@ -1,4 +1,4 @@
-import { User, UserSnakeCase } from '../../models/user'
+import { User } from '../../models/user'
 import {
   REQUEST_USER,
   RECEIVE_USER,

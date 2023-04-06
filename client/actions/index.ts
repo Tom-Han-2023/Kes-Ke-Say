@@ -19,7 +19,7 @@ export type PostAction =
     }
 import type { ThunkAction } from '../store'
 import { getUserInfo } from '../apiClient/profileindex'
-import { User, UserSnakeCase } from '../../models/user'
+import { User } from '../../models/user'
 
 export const REQUEST_USER = 'REQUEST_USER'
 export const RECEIVE_USER = 'RECEIVE_USER'
