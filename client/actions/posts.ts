@@ -1,4 +1,5 @@
 import Post, { NewPost } from '../../models/post'
+
 import { getPosts } from '../apiClient/posts'
 import { addPost } from '../apiClient/posts'
 
