@@ -1,7 +1,6 @@
 import Post, { NewPost } from '../../models/post'
 
-import { getPosts } from '../apiClient/posts'
-import { addPost } from '../apiClient/posts'
+import { getPosts, addPost } from '../apiClient/posts'
 
 import { Dispatch } from 'redux'
 import { ThunkAction } from '../store'
