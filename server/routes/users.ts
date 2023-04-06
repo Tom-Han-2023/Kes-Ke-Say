@@ -1,13 +1,13 @@
 import express from 'express'
-import { getAllProfiles, User, getUser } from '../db/functions/users'
-
+import { getAllProfiles, getUser } from '../db/functions/users'
+import { User } from '../../models/user'
 
 const router = express.Router()
 
 router.get('/', async (req, res) => {
   try {
     const users: User[] = await getAllProfiles()
-    res.status(200).json({users: users})
+    res.status(200).json({ users: users })
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'Internal Server Error' })
