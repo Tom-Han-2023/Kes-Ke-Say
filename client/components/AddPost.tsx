@@ -24,8 +24,10 @@ export default function AddPost() {
 
   return (
     <div className="flex justify-center items-center m-8 flex-col">
-      <h2>Add your new post here</h2>
       <form className="flex flex-col m-8" onSubmit={handleSubmit}>
+        <label htmlFor="post" className="text-center">
+          Add your new post here
+        </label>
         <textarea
           name="post"
           id="post"
