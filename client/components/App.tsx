@@ -4,6 +4,7 @@ import LandingPage from './LandingPage'
 import MainLayout from './MainLayout'
 import Home from './Home'
 import AddPost from './AddPost'
+import AllProfiles from './AllProfiles'
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         {/* Replace the element with your React Component */}
         <Route index element={<Home />} />
         <Route path="register" element={<div>Register</div>} />
-        <Route path="profiles" element={<div>AllProfiles </div>} />
+        <Route path="profiles" element={<AllProfiles />} />
         <Route path="profiles/:username" element={<div>Profile</div>} />
         <Route path="post" element={<AddPost />} />
         <Route path="post/:id" element={<div>Post</div>} />
