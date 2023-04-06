@@ -21,9 +21,9 @@ export default function UserProfilePage() {
 
   console.log(userProfile)
 
-  if (!userProfile) return <> User not found</>
   if (isLoading) return <>Loading...</>
-  if (error) return <>{error}</>
+  if (error) return <>An error occurred</>
+  if (!userProfile) return <> User not found</>
 
   return (
     <>
