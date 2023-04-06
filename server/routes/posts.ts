@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { user_id, body, image, created_at } = req.body
+
     if (!user_id) {
       res.status(400).send('The user id was missing')
     }
@@ -29,22 +30,16 @@ router.post('/', async (req, res) => {
     }
 
     const newPost: NewPost = {
-      user_id: user_id,
-      body: body,
-      image: image,
-      created_at: created_at,
+      user_id,
+      body,
+      image,
+      created_at,
     }
 
     const [id] = await createPost(newPost)
 
     res.json({
-      post: {
-        id: id,
-        user_id: user_id,
-        body: body,
-        image: image,
-        created_at: created_at,
-      },
+      post: { id, ...newPost },
     })
   } catch (error) {
     res.status(500)

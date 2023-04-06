@@ -84,14 +84,12 @@ describe('/ POST /api/v1/posts', () => {
   })
 
   test('Should return an error when the user id is missing', async () => {
-    const requestBody = [
-      {
-        id: 1,
-        body: 'New Task',
-        image: 'image.jpg',
-        created_at: 123456789,
-      },
-    ]
+    const requestBody = {
+      id: 1,
+      body: 'New Task',
+      image: 'image.jpg',
+      created_at: 123456789,
+    }
 
     const response = await request(server)
       .post('/api/v1/posts')
@@ -99,5 +97,37 @@ describe('/ POST /api/v1/posts', () => {
 
     expect(response.status).toBe(400)
     expect(response.text).toBe('The user id was missing')
+  })
+
+  test('Should return an error when the post body is missing', async () => {
+    const requestBody = {
+      id: 1,
+      user_id: 1,
+      image: 'image.jpg',
+      created_at: 123456789,
+    }
+
+    const response = await request(server)
+      .post('/api/v1/posts')
+      .send(requestBody)
+
+    expect(response.status).toBe(400)
+    expect(response.text).toBe('the post body is missing')
+  })
+
+  test('Should return an error when the created at date was missing', async () => {
+    const requestBody = {
+      id: 1,
+      user_id: 1,
+      body: 'New Task',
+      image: 'image.jpg',
+    }
+
+    const response = await request(server)
+      .post('/api/v1/posts')
+      .send(requestBody)
+
+    expect(response.status).toBe(400)
+    expect(response.text).toBe('The created date is missing')
   })
 })
