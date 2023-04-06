@@ -17,7 +17,7 @@ describe('getTopHeadlines ()', () => {
     })
       .get('/v2/top-headlines?country=fr&apiKey=MOCKAPIKEY')
       .reply(200, {
-        article: [
+        articles: [
           {
             source: {
               id: 'google-news',

@@ -7,5 +7,5 @@ export async function getTopHeadlines() {
       `https://newsapi.org/v2/top-headlines?country=fr&apiKey=${NEWS_API_KEY}`
     )
     .set('User-Agent', 'Kes Ke Say News in France')
-  return response.body.article
+  return response.body.articles
 }

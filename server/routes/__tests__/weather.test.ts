@@ -1,17 +1,15 @@
 import request from 'supertest'
 import server from '../../server'
 import { getUserLocation } from '../../db/functions/users'
-import { getTopHeadlines } from '../../externalApi/newsApi'
 import { getWeatherData } from '../../externalApi/weatherApi'
 jest.mock('../../externalApi/weatherApi')
-jest.mock('../../externalApi/newsApi')
 jest.mock('../../db/functions/users')
 
 beforeEach(() => {
   jest.resetAllMocks()
 })
 
-describe('GET /api/v1/externalApi/weather', () => {
+describe('GET /api/v1//weatherapi', () => {
   it('returns the weather data', async () => {
     const mockResponse = {
       location: {
@@ -25,7 +23,7 @@ describe('GET /api/v1/externalApi/weather', () => {
     jest.mocked(getUserLocation).mockResolvedValue([{ location: 'Auckland' }])
     jest.mocked(getWeatherData).mockResolvedValue(mockResponse)
 
-    const response = await request(server).get('/api/v1/externalApi/weather')
+    const response = await request(server).get('/api/v1/weatherapi')
 
     expect(response.status).toBe(200)
     expect(response.body.location.name).toBe('Auckland')
@@ -38,7 +36,7 @@ describe('GET /api/v1/externalApi/weather', () => {
       .mocked(getUserLocation)
       .mockRejectedValue(new Error('it did not work :('))
 
-    const response = await request(server).get('/api/v1/externalApi/weather')
+    const response = await request(server).get('/api/v1/weatherapi')
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe(
@@ -52,39 +50,11 @@ describe('GET /api/v1/externalApi/weather', () => {
       .mocked(getWeatherData)
       .mockRejectedValue(new Error('it did not work :('))
 
-    const response = await request(server).get('/api/v1/externalApi/weather')
+    const response = await request(server).get('/api/v1/weatherapi')
 
     expect(response.status).toBe(500)
     expect(response.body.error).toBe(
       'There was an error trying to get the weather :('
     )
-  })
-})
-
-describe('GET /api/v1/externalApi/news', () => {
-  it('returns the top headlines', async () => {
-    const mockArticles = [
-      { title: 'Article 1' },
-      { title: 'Article 2' },
-      { title: 'Article 3' },
-    ]
-    jest.mocked(getTopHeadlines).mockResolvedValue(mockArticles)
-
-    const response = await request(server).get('/api/v1/externalApi/news')
-
-    expect(response.status).toBe(200)
-    expect(response.body).toEqual(mockArticles)
-  })
-
-  it('returns 500 when fail to get news', async () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {})
-    jest
-      .mocked(getTopHeadlines)
-      .mockRejectedValue(new Error('it did not work :('))
-
-    const response = await request(server).get('/api/v1/externalApi/news')
-
-    expect(response.status).toBe(500)
-    expect(response.body.error).toBe('There was an error trying to get news:(')
   })
 })
