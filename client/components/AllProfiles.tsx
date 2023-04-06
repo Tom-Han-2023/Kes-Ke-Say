@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { getAllProfiles } from '../actions/users'
+import { Link } from 'react-router-dom'
 
 const AllProfiles = () => {
   const dispatch = useAppDispatch()
@@ -11,9 +12,11 @@ const AllProfiles = () => {
   }, [dispatch])
 
   return (
+
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {users.map((user) => (
-        <div key={user.id} className="p-4 bg-gray-100 rounded-md">
+        <Link to = {`/profiles/${user.username}`} key={user.id}>
+        <div className="p-4 bg-gray-100 rounded-md">
           <img
             src={`/images/avatars/${user.image}`}
             alt={`Profile of ${user.username}`}
@@ -26,6 +29,7 @@ const AllProfiles = () => {
             </p>
           </div>
         </div>
+        </Link>
       ))}
     </div>
   )
