@@ -3,6 +3,7 @@ import AllGroups from './AllGroups'
 import LandingPage from './LandingPage'
 import MainLayout from './MainLayout'
 import Home from './Home'
+import AllProfiles from './AllProfiles'
 import UserProfilePage from './UserProfilePage'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         {/* Replace the element with your React Component */}
         <Route index element={<Home />} />
         <Route path="register" element={<div>Register</div>} />
-        <Route path="profiles" element={<div>AllProfiles </div>} />
+        <Route path="profiles" element={<AllProfiles/>} />
         <Route path="profiles/:username" element={<UserProfilePage />} />
         <Route path="post" element={<div>AddPost</div>} />
         <Route path="post/:id" element={<div>Post</div>} />

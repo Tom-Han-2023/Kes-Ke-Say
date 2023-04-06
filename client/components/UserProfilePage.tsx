@@ -1,6 +1,6 @@
 import { fetchUserInfo } from '../actions'
 import { useAppDispatch, useAppSelector } from '../hooks'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 
 export default function UserProfilePage() {
@@ -18,9 +18,15 @@ export default function UserProfilePage() {
     }
   }, [dispatch, username])
 
+  const navigate = useNavigate()
+
   if (isLoading) return <>Loading...</>
   if (error) return <>An error occurred</>
   if (!userProfile) return <> User not found</>
+
+  const navigateToAllProfiles = () => {
+    navigate('/profiles')
+  }
 
   return (
     <>
@@ -28,7 +34,10 @@ export default function UserProfilePage() {
         <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded mr-2 mb-5 mt-5">
           View All Posts by User
         </button>
-        <button className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ml-2 mb-5">
+        <button
+          onClick={navigateToAllProfiles}
+          className="bg-blue-500 hover:bg-red-700 py-2 px-4 rounded ml-2 mb-5"
+        >
           View All Profiles
         </button>
         <img
