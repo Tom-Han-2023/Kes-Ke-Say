@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { addNewPost } from '../actions/posts'
-import { useAppDispatch, useAppSelector } from '../hooks'
+import { useAppDispatch } from '../hooks'
 import { useNavigate } from 'react-router-dom'
 
 export default function AddPost() {
