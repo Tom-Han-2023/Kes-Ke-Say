@@ -37,10 +37,7 @@ describe('<AddPost />', () => {
 
     fireEvent.change(input, { target: { value: 'this is a test post' } })
     fireEvent.click(submitButton)
-    expect(screen.getByRole('heading')).toBeInTheDocument()
-    expect(screen.getByRole('heading')).toHaveTextContent(
-      'Add your new post here'
-    )
+    expect(screen.getByText('Add your new post here')).toBeInTheDocument()
     expect(screen.getByRole('button')).toBeInTheDocument()
 
     await waitFor(() => {
