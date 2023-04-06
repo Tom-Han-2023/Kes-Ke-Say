@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { addNewPost } from '../actions/posts'
 import { useAppDispatch, useAppSelector } from '../hooks'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddPost() {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
   const [body, setBody] = useState('')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -16,6 +19,7 @@ export default function AddPost() {
       })
     )
     setBody('')
+    navigate('/')
   }
 
   return (
