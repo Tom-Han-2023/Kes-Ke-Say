@@ -5,17 +5,13 @@ import { fetchNews } from '../actions/newsAction'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 function News() {
-  const news = useAppSelector((state) => state.newsReducer)
+  const news = useAppSelector((state) => state.news)
   const dispatch = useAppDispatch()
   const [stories, setStories] = useState([] as NewsType[])
   const newsLength = 6
 
   useEffect(() => {
-    const getNewsData = async () => {
-      await dispatch(fetchNews())
-    }
-
-    getNewsData()
+    dispatch(fetchNews())
   }, [dispatch])
 
   useEffect(() => {
@@ -29,13 +25,14 @@ function News() {
       setStories(news.data.slice(0, stories.length + newsLength))
     }
   }
-
   function extractDateFromTimestamp(timestamp: string) {
-    // Extract the first 10 characters (the date portion) from the timestamp
+    // Extract the first 10 characters (the date portion)
+    //and the 11th to 16th (time) from the timestamp
     return timestamp.slice(0, 10) + ' ' + timestamp.slice(11, 16)
   }
 
   function removeAuthorFromTitle(title: string, author: string) {
+    //Remove the " - Author Name" from the end of imported titles
     const titleArray = title.split(' ')
     const authorLength = author.split(' ').length + 1
     return titleArray.slice(0, titleArray.length - authorLength).join(' ')

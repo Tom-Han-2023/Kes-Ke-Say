@@ -7,7 +7,7 @@ import weatherReducer from './weatherReducer'
 
 export default combineReducers({
   groups,
-  weatherReducer,
-  newsReducer,
+  weather: weatherReducer,
+  news: newsReducer,
   posts: postReducer,
 })

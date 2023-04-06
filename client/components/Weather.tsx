@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../hooks'
 import { fetchWeather } from '../actions/weatherAction'
 
 function Weather() {
-  const weather = useAppSelector((state) => state.weatherReducer)
+  const weather = useAppSelector((state) => state.weather)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -23,8 +23,6 @@ function Weather() {
   if (!weather.data) {
     return <div className="ml-8"></div>
   }
-
- 
 
   return (
     <div className="ml-8 ">
