@@ -1,6 +1,6 @@
 import express from 'express'
 import { createPost, getAllPosts } from '../db/functions/posts'
-import Post from '../../models/post'
+import Post, { NewPost } from '../../models/post'
 
 const router = express.Router()
 
@@ -49,6 +49,5 @@ router.post('/', async (req, res) => {
     res.status(500)
   }
 })
-
 
 export default router

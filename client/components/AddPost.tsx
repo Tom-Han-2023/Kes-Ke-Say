@@ -13,7 +13,6 @@ export default function AddPost() {
         user_id: 1,
         body: body,
         created_at: Number(new Date(Date.now())),
-        users_username: '',
       })
     )
     setBody('')
@@ -33,6 +32,7 @@ export default function AddPost() {
           onChange={(event) => {
             setBody(event.target.value)
           }}
+          value={body}
         ></textarea>
         <button
           type="submit"
