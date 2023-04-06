@@ -14,6 +14,14 @@ export default function Home() {
 
   return (
     <div>
+      <div className="flex justify-end">
+        <a href="/post">
+          {' '}
+          <button className="border-2 border-wine-red p-3 rounded-xl bg-wine-red text-white m-6">
+            New Post
+          </button>
+        </a>
+      </div>
       <PostFeed />
     </div>
   )
