@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
-
-import groups from './groups'
+import users from './users'
 import postReducer from './postsReducer'
 import weatherReducer from './weatherReducer'
+import groups from './groups'
 
 export default combineReducers({
-  groups,
+  users,
   weatherReducer,
   posts: postReducer,
+  groups,
 })
