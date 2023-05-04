@@ -7,6 +7,18 @@ Kes-Ke-Say is a social sharing platform where user can create posts, read posts 
 
 Special Credit: To the amazing 3d Croissant built by our Facilitator Jatin aka Jean Pierre.
 
+## Technologies Used
+
+- React
+- Redux
+- TypeScript
+- Auth0
+- Node.js
+- Express
+- Knex
+- PostgreSQL/SQLite3
+- API
+
 ## From the Command Line
 ```
 git clone
